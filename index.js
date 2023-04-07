@@ -5,10 +5,10 @@ const post = require("./SRC/posts/post.model")
 
 app.get('/api/v1',function(req,res){
 
-    return res.json(req)
+    return res.json(req.headers)
 })
 
-app.get('/api/v1', function(req, res){
+app.get('/api/v1/posts', function(req, res){
 return res.json([post])
     
 })
