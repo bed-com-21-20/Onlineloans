@@ -7,4 +7,13 @@ const post = {
   summary: "", 
 } 
 
-module.exports = post
+
+//class post {
+
+//constructor(){
+  
+//}
+
+// }
+
+// module.exports = post 
