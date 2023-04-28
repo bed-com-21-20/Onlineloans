@@ -1,8 +1,9 @@
-import { Controller, Get, Param, Post, Put, Delete, Body, Query, NotFoundException, ValidationPipe, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Param, Post, Put, Delete, Body, Query, NotFoundException, ValidationPipe, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
 //import { query } from 'express';
 import { CustomersService } from './customers.service';
+import { BeltGuard } from 'src/belt/belt.guard';
 
 @Controller('customers')
 export class CustomersController {
@@ -29,11 +30,12 @@ getonecustomer(@Param('id') id: number ){
 }
 // POST /customer 
 @Post()
+@UseGuards(BeltGuard) // used to protect  route in this the post route
 createCustomer(@Body(new ValidationPipe()) createCustomerDto: CreateCustomerDto ){
    
     return this.customersService.createCustomer(createCustomerDto);
-       
-}
+       }
+
 // PUT /customer/:id --> { ... }
 @Put(':id')
 updateCustomer(@Param('id') id: string, @Body() updateCustomerDto: UpdateCustomerDto){
