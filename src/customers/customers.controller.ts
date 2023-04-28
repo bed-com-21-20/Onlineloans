@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Put, Delete, Body, Query, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Param, Post, Put, Delete, Body, Query, NotFoundException, ValidationPipe, ParseIntPipe } from '@nestjs/common';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
 //import { query } from 'express';
@@ -29,14 +29,10 @@ getonecustomer(@Param('id') id: number ){
 }
 // POST /customer 
 @Post()
-createCustomer(@Body() createCustomerDto: CreateCustomerDto ){
-    return {
-      // id: createCustomerDto.id,
-        Reg_Number: createCustomerDto.Reg_Number,
-        name: createCustomerDto.name,
-       // phone_Number: createCustomerDto.Phone_Number,
-        
-    };  
+createCustomer(@Body(new ValidationPipe()) createCustomerDto: CreateCustomerDto ){
+   
+    return this.customersService.createCustomer(createCustomerDto);
+       
 }
 // PUT /customer/:id --> { ... }
 @Put(':id')
@@ -46,8 +42,8 @@ updateCustomer(@Param('id') id: string, @Body() updateCustomerDto: UpdateCustome
 }
 // DELETE /customer/: id 
 @Delete(':id')
-removeCustomer(@Param('id') id: string){
-    return this.customersService.removeCustomer(+id);
+removeCustomer(@Param('id', ParseIntPipe) id: number){
+    return this.customersService.removeCustomer(id);
 }
 
 }

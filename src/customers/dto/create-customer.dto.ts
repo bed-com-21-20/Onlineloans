@@ -1,7 +1,12 @@
+import { MinLength, IsEnum} from 'class-validator';
 export class CreateCustomerDto {
- id: number;   
+
+@MinLength(6)
+name: 'Bed-com | Bsc-com';
+
+
 Reg_Number: string;
-name: string;
-///Phone_Number: number;
+
+Phone_Number: number;
 
 }
