@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Put, Delete, Body, Query, NotFoundException, ValidationPipe, ParseIntPipe, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Post, Put, Delete, Body, Query, NotFoundException, ValidationPipe, ParseIntPipe, UseGuards, UsePipes } from '@nestjs/common';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
 //import { query } from 'express';
@@ -28,6 +28,15 @@ getonecustomer(@Param('id') id: number ){
     }
 
 }
+
+//POST /Customer
+ @Post('create')
+ @UsePipes(ValidationPipe)
+ creatCustomer(@Body() createCustomerDto: CreateCustomerDto){
+ }
+
+
+
 // POST /customer 
 @Post()
 @UseGuards(BeltGuard) // used to protect  route in this the post route
