@@ -6,7 +6,7 @@ import { UsersModule } from './==dry=run/users/users.module';
 //import { CustomersModule } from './customers/customers.module';
 
 @Module({
-  imports: [CustomersModule, UsersModule],
+  imports: [UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
