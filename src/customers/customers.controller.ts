@@ -22,7 +22,7 @@ export class CustomersController {
 @Get(':id')
 getonecustomer(@Param('id') id: number ){
     try{
-    return this.customersService.getCustomer();
+    return this.customersService.getonecustomer(id);
     } catch (err){
         throw new NotFoundException();
     }
@@ -48,7 +48,7 @@ createCustomer(@Body(new ValidationPipe()) createCustomerDto: CreateCustomerDto 
 // PUT /customer/:id --> { ... }
 @Put(':id')
 updateCustomer(@Param('id') id: string, @Body() updateCustomerDto: UpdateCustomerDto){
-  //  return this.customersService.updateCustomer(+id, this.UpdateCustomerDto);
+    return this.customersService.updateCustomer(+id, updateCustomerDto);
     
 }
 // DELETE /customer/: id 

@@ -22,10 +22,10 @@ export class CustomersService {
     ];
 
     //this will filter by Reg#
-    getCustomer(Reg_Number?: 'Bed-com'| 'Bsc-com'){
+    getCustomer(name:string){
         console.log(this.customers);
-        if(Reg_Number){ 
-            return this.customers.filter((customer)=> customer.Reg_Number === Reg_Number);
+        if(name){ 
+            return this.customers.filter((customer)=> customer.name === name);
         }
         return this.customers;
 
@@ -63,7 +63,7 @@ export class CustomersService {
 
 
 removeCustomer(id:number){
-    const toBeRemoved = this.getCustomer();
+    const toBeRemoved = this.getonecustomer(id);
 
     this.customers = this.customers.filter((customer) => customer.id !==id);
 }
