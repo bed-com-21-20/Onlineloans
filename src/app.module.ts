@@ -8,7 +8,7 @@ import { TypeOrmModule} from '@nestjs/typeorm';
 import entities from './customers/typeorm';
 
 @Module({
- /// imports: [UsersModule],
+ 
   imports: [ TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',

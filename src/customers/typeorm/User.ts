@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, Double} from "typeorm";
 
 @Entity()
 export class user{
@@ -35,7 +35,7 @@ export class user{
 export class customers{
     @PrimaryGeneratedColumn({
         type: 'bigint',
-        name: ' customer_id',
+        name: 'customer_id',
 
     })
     customer_Number: number;
@@ -56,6 +56,51 @@ export class customers{
     PhoneNumber: number;
 
     @Column()
+    hostelName: string;
+
+    @Column()
     emailAddress: string;
+
+    @Column()
+    amount: number;
+
+    @Column()
+    dateBorrowed: Date;
+
+    @Column()
+    repaymentDate: Date;
+}
+
+//Lenders table
+@Entity()
+export class Lenders{
+    @PrimaryGeneratedColumn({
+        type: 'bigint',
+        name: 'lenderID',
+
+    })
+    lenderID: number;
+
+    @Column()
+    Fname: string;
+
+    @Column({
+        nullable: false,
+        default: '',
+    })
+    RegNumber: string;
+
+    @Column({
+        nullable: false,
+        
+    })
+    PhoneNumber: number;
+
+    @Column()
+    emailAddress: string;
+
+    @Column()
+    Rates: number;
+
 
 }

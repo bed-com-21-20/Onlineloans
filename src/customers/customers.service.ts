@@ -4,6 +4,8 @@ import { UpdateCustomerDto } from './dto/update-customer.dto';
 
 @Injectable()
 export class CustomersService {
+   
+     
     private customers = [
         {   id : 0, 
             Reg_Number: 'Bed-com',
