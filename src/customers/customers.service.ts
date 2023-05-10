@@ -51,14 +51,14 @@ export class CustomersService {
         return newCustomer;
     }
    updateCustomer(id: number, updateCustomerDto: UpdateCustomerDto){
-        // this.customers = this.customers.map((customer) =>{
-        //     if(customer.id ==id){
-        //         return { ...customer, ...updateCustomerDto};
-        //     }
-        //     return customer;
-        // });
+        this.customers = this.customers.map((customer) =>{
+            if(customer.id ==id){
+                return { ...customer, ...updateCustomerDto};
+            }
+            return customer;
+        });
 
-        // return this.getCustomer(id);
+        return this.getonecustomer(id);
     }
 
 

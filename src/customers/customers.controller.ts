@@ -39,7 +39,7 @@ getonecustomer(@Param('id') id: number ){
 
 // POST /customer 
 @Post()
-@UseGuards(BeltGuard) // used to protect  route in this the post route
+@UseGuards(BeltGuard) // used to protect  route in this case, the post route
 createCustomer(@Body(new ValidationPipe()) createCustomerDto: CreateCustomerDto ){
    
     return this.customersService.createCustomer(createCustomerDto);
