@@ -4,6 +4,7 @@ import { UpdateCustomerDto } from './dto/update-customer.dto';
 //import { query } from 'express';
 import { CustomersService } from './customers.service';
 import { BeltGuard } from 'src/belt/belt.guard';
+import { customers } from './typeorm';
 
 @Controller('customers')
 export class CustomersController {
@@ -12,9 +13,9 @@ export class CustomersController {
 
 // GET / Customers --> []
  @Get()
- getCustomer(@Query('Reg_Number') Reg_Number: 'Bed-com'| 'Bsc-com'){
-    //const service = new CustomersService();
-    return this.customersService.getCustomer(Reg_Number);
+ getCustomer(id: number){
+   // const customer = this.customersService.getonecustomer((customer) => customer.name ==name);
+    return customers;
  } 
 
 //GET / customer/:id --> { ... }

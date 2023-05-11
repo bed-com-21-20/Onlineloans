@@ -55,13 +55,13 @@ export class customers{
     })
     PhoneNumber: number;
 
-    @Column()
+    @Column('text')
     hostelName: string;
 
-    @Column()
+    @Column('text')
     emailAddress: string;
 
-    @Column()
+    @Column('double')
     amount: number;
 
     @Column()
