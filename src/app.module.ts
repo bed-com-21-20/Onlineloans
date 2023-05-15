@@ -1,25 +1,23 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CustomersModule } from './customers/customers.module';
-import { UsersModule } from './==dry=run/users/users.module';
-import { CustomersService } from './customers/customers.service';
 import { TypeOrmModule} from '@nestjs/typeorm';
-import entities from './customers/typeorm';
-
+import {user} from './User/typeorm/User';
+import { LendersModule } from './lenders/lenders.module';
+import { UsersModule } from './User/users.module'
 @Module({
  
-  imports: [ TypeOrmModule.forRoot({
+  imports: [UsersModule, TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
     port: 3306,
     username: 'root',
     password: '',
     database: 'onlineloan',
-    entities,
+    entities: [user],
     synchronize: true,
 
-  }),
+  })
 ],
 
   controllers: [AppController],

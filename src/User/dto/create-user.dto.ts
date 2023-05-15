@@ -1,19 +1,19 @@
 import { MinLength, MaxLength, IsEnum} from 'class-validator';
 import { IsNotEmpty} from "class-validator";
 
-export class CreateCustomerDto {
+export class CreateUserDto {
 
-@MinLength(30)
+@MinLength(10)
 @IsNotEmpty()
-fname: string;
+username: string;
 
-@MinLength(30)
+@MinLength(10)
 @IsNotEmpty()
-RegNumber: string;
+emailAddress: string;
 
 @MinLength(10)
 @MaxLength(10)
 @IsNotEmpty()
-PhoneNumber: number;
+password:  string;
 
-}
+} 
