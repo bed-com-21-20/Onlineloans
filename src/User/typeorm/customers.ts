@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, Double} from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
+import { isEmail, IsEmail } from "class-validator";
 
 
 @Entity()
@@ -30,6 +31,7 @@ export class customers{
     hostelName: string;
 
     @Column('text')
+    @IsEmail()
     emailAddress: string;
 
     @Column('double')

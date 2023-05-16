@@ -12,12 +12,12 @@ import { customers } from './typeorm';
         type: user,
     },
 })
-@CrudAuth({
-    property: "user",
-    filter: (user: user) => ({
-      id: user.id,
-    }),
-  })
+// @CrudAuth({
+//     property: "user",
+//     filter: (user: user) => ({
+//       id: user.id,
+//     }),
+//   })
 
 @Controller('user')
 export class UsersController implements CrudController<user> {
