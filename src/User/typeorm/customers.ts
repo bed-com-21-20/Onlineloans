@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, Double} from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
-import { isEmail, IsEmail } from "class-validator";
+import { IsEmail, IsDate } from "class-validator";
 
 
 @Entity()
@@ -38,8 +38,11 @@ export class customers{
     amount: number;
 
     @Column()
+    @IsDate()
     dateBorrowed: Date;
 
     @Column()
+    @IsDate()
     repaymentDate: Date;
+   
 }
