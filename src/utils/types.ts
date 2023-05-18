@@ -1,16 +1,22 @@
 import { IsNotEmpty, MinLength } from "class-validator";
+import { type } from "os";
 
-export class CreateLenderParams{
+export type CreateLenderParams ={
 
-@IsNotEmpty()
-@MinLength(5)
 fname: string;
 
-@IsNotEmpty()
 emailAddress: string;
 
-@IsNotEmpty()
-@MinLength(10)
 phonenum: number;
    
-}
+};
+
+export type UpdateLenderParams ={
+
+    fname: string;
+    
+    emailAddress: string;
+    
+    phonenum: number;
+       
+    };

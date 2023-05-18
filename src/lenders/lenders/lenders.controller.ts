@@ -16,7 +16,7 @@ export class LendersController {
  
     //Get / lender/id
 
-    @Get('id')
+    @Get(':id')
     getOneLender(@Param('id' ) id: number){
 
         try{
@@ -34,15 +34,17 @@ export class LendersController {
     }
 
     // DELETE /customer/: id 
-    @Delete('id')
-    removelender(@Param('id',ParseIntPipe) id: number){
-        return this.lendersService.removelender(id)
+    @Delete(':id')
+    async removelender(@Param('id', ParseIntPipe) id: number){
+       await this.lendersService.removelender(id)
     }
 
 
     @Put(':id')
-    editlender(@Param('id') id: number, @Body() UpdateLenderDto: UpdateLenderDto){
-        return this.lendersService.updatelender(id, UpdateLenderDto );
+    async editlender(@Param('id', ParseIntPipe) id: number,
+     @Body() UpdateLenderDto: UpdateLenderDto
+     ){
+      await this.lendersService.upDateLender(id, UpdateLenderDto );
     }
 
 

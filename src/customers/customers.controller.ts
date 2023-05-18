@@ -14,14 +14,14 @@ export class CustomersController {
         return this.customersService.getCustomer();
     }
 
-    @Get('id')
+    @Get(':id')
     getOneCustomer(@Param('id')id: number){
         try{
             return this.customersService.getOneCustomer(id);
         } catch (err){
             throw new NotFoundException();
         }
-    }
+    } 
 
     @Post()
     createCustomer(@Body() createcustomerDto: CreateCustomerDto){
@@ -29,14 +29,16 @@ export class CustomersController {
     }
 
     @Put(':id')
-    editCustomer(@Param('id', ParseIntPipe) id: number, updatecustomerDto: UpdateCustomerDto){
-        return this.customersService.editCustomer(id, updatecustomerDto);
+   async editCustomer(@Param('id', ParseIntPipe) id: number,
+     @Body() updatecustomerDto: UpdateCustomerDto
+     ){
+      await this.customersService.updateCustomer(id, updatecustomerDto);
     }
 
-    @Delete('id')
-    removeCustomer(@Param('id,', ParseIntPipe) id: number){
-        return this.customersService.removeCustomer(id);
-    }
+    @Delete(':id') 
+    async remove(@Param('id', ParseIntPipe) id: number){
+       await this.customersService.removeCustomer(id);
+    } 
 
 }
 

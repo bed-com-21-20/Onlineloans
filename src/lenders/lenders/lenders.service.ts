@@ -4,6 +4,7 @@ import { lenders } from 'src/User/typeorm/lenders';
 import { Repository } from 'typeorm';
 import { CreateLenderParams } from 'src/utils/types';
 import { UpdateLenderDto } from 'src/User/dto/update-lender.dto';
+import { UpdateLenderParams} from 'src/utils/types';
 
 @Injectable()
 export class LendersService {
@@ -27,6 +28,8 @@ getOneLender(id: number){
     return lender;
 }
 
+//getlenderByID(id: number){}
+
 
 createlender(lenderDetails: CreateLenderParams){
     try{
@@ -41,30 +44,15 @@ createlender(lenderDetails: CreateLenderParams){
     }
 }
  
-    updatelender(id: number, updateLenderDto: UpdateLenderDto ){
-        this.lendersRepository = this.Repository.map((lender) =>{
+   
 
-            if(lender.id ==id){
-                return { ...lender, ...updateLenderDto};
-            }
-        });
-        return this.getOneLender(id);
+    upDateLender(id: number, updateLenderDetails: UpdateLenderParams){
+        return this.lendersRepository.update(id, { ...updateLenderDetails});
     }
-
-    //    updateCustomer(id: number, updateCustomerDto: UpdateCustomerDto){
-//         this.customers = this.customers.map((customer) =>{
-//             if(customer.id ==id){
-//                 return { ...customer, ...updateCustomerDto};
-//             }
-//             return customer;
-//         });
-
-//         return this.getonecustomer(id);
-//     }
-
-
-    async removelender(id: number): Promise<void>{
-        await this.lendersRepository.delete(id);
+    
+ 
+    removelender(id: number){
+        return this.lendersRepository.delete(id);
     }
 
 }

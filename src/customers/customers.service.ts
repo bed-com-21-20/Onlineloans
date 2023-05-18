@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { customers } from 'src/User/typeorm';
-import { Repository} from 'typeorm';
+import { Repository, DeleteResult} from 'typeorm';
 import { CreateCustomerDto} from 'src/User/dto/create-customer.dto';
 import { UpdateCustomerDto} from 'src/User/dto/update-customer.dto';
-
+import { UpdateCustomerParams} from 'src/utils/temps';
 @Injectable()
 export class CustomersService {
     Repository: any;
@@ -19,7 +19,7 @@ export class CustomersService {
    }
 
    getOneCustomer(id: number){
-       const customer = this.customersRepository.findOneById(id);
+       const customer = this.customersRepository.findOneById('id');
        
        if(!customer){
            throw new Error('Customer not Found');
@@ -41,18 +41,22 @@ export class CustomersService {
     }
 
 
-    editCustomer(id: number, updateCustomerDto: UpdateCustomerDto){
-        this.customersRepository = this.Repository.map((customers) =>{
+    // editCustomer(id: number, updateCustomerDto: UpdateCustomerDto){
+    //     this.customersRepository = this.Repository.map((customers) =>{
 
-            if(customers.id==id){
-                return { ...customers, ...updateCustomerDto};
-            }
-        });
-        return this.getOneCustomer(id);
+    //         if(customers.id==id){
+    //             return { ...customers, ...updateCustomerDto};
+    //         }
+    //     });
+    //     return this.getOneCustomer(id);
+    // }
+
+     updateCustomer( id: number, updateCustomerDetails: UpdateCustomerParams){
+         return this.customersRepository.update(id, { ...updateCustomerDetails});
     }
 
-   async removeCustomer(id: number): Promise<void>{
-       await this.customersRepository.delete(id);
+    removeCustomer(id: number){
+      return this.customersRepository.delete(id);
    }
 
 

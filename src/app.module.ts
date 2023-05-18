@@ -11,10 +11,12 @@ import { LendersController } from './lenders/lenders/lenders.controller';
 import { customers } from './User/typeorm';
 import { lenders } from './User/typeorm/lenders';
 import { LendersService } from './lenders/lenders/lenders.service';
+import { AuthModule } from './auth/auth.module';
+import { UsersController } from './User/users.controller';
 
 @Module({
  
-  imports: [UsersModule,LendersModule,CustomersModule, TypeOrmModule.forRoot({
+  imports: [UsersModule, AuthModule, LendersModule,CustomersModule, TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
     port: 3306,
@@ -27,7 +29,7 @@ import { LendersService } from './lenders/lenders/lenders.service';
   })
 ],
 
-  controllers: [AppController,LendersController, CustomersController],
+  controllers: [AppController,LendersController, CustomersController, UsersController],
   providers: [AppService],
 })
 export class AppModule {}
