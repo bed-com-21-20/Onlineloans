@@ -6,3 +6,17 @@ export class AppService {
     return 'working api';
   }
 }
+
+// @Injectable()
+// export class AppService {
+//   getHello(): string {
+//     return 'working api';
+//   }
+// }
+
+// @Injectable()
+// export class AppService {
+//   getHello(): string {
+//     return 'working api';
+//   }
+// }

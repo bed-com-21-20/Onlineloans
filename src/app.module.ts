@@ -32,3 +32,10 @@ import { AuthController } from './Auth/auth/auth.controller';
   providers: [AppService]
 })
 export class AppModule {}
+
+// @Injectable()
+// export class AppService {
+//   getHello(): string {
+//     return 'working api';
+//   }
+// }
