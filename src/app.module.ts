@@ -28,7 +28,7 @@ import { AuthController } from './Auth/auth/auth.controller';
   })
 ],
 
-  controllers: [AppController,LendersController,CustomersController,UsersController,AuthController],
+  controllers: [AppController,LendersController,CustomersController,UsersController],
   providers: [AppService]
 })
 export class AppModule {}
