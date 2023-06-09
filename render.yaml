@@ -1,0 +1,4 @@
+name: online-loans-api
+type: web
+buildCommand: npm install && npm run build
+startCommand: npm run start:prod
