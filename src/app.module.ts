@@ -27,7 +27,7 @@ import { UsersController } from './User/users.controller';
   })
 ],
 
-  controllers: [AppController,LendersController,CustomersController,UsersController,AuthController],
+  controllers: [AppController,LendersController,CustomersController,UsersController],
   providers: [AppService]
 })
 export class AppModule {}
