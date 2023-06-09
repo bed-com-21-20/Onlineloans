@@ -4,7 +4,6 @@ import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { user } from './typeorm/User';
-import { CreateUserParams } from 'src/utils/types';
 
 //export type ;
 @Injectable()
