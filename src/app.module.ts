@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+<<<<<<< HEAD
 import { TypeOrmModule} from '@nestjs/typeorm';
 import {user} from './User/typeorm/User';
 import { LendersModule } from './lenders/lenders.module';
@@ -30,5 +31,12 @@ import { AuthController } from './Auth/auth/auth.controller';
 
   controllers: [AppController,LendersController,CustomersController,UsersController,AuthController],
   providers: [AppService]
+=======
+
+@Module({
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
+>>>>>>> 1e42e8bd0ae6f42f3126da565d92d41644cb848f
 })
 export class AppModule {}
