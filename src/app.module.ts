@@ -11,7 +11,6 @@ import { LendersController } from './lenders/lenders/lenders.controller';
 import { customers } from './User/typeorm';
 import { lenders } from './User/typeorm/lenders';
 import { UsersController } from './User/users.controller';
-import { AuthController } from './Auth/auth/auth.controller';
 
 @Module({
  
@@ -28,7 +27,11 @@ import { AuthController } from './Auth/auth/auth.controller';
   })
 ],
 
+<<<<<<< HEAD
   controllers: [AppController,LendersController,CustomersController,UsersController],
+=======
+  controllers: [AppController,LendersController,CustomersController],
+>>>>>>> 1803ef1e51cacbfbee9ec0e81784871b2f19c4b4
   providers: [AppService]
 })
 export class AppModule {}
