@@ -40,18 +40,7 @@ export class CustomersService {
         }
     }
 
-
-    // editCustomer(id: number, updateCustomerDto: UpdateCustomerDto){
-    //     this.customersRepository = this.Repository.map((customers) =>{
-
-    //         if(customers.id==id){
-    //             return { ...customers, ...updateCustomerDto};
-    //         }
-    //     });
-    //     return this.getOneCustomer(id);
-    // }
-
-     updateCustomer( id: number, updateCustomerDetails: UpdateCustomerParams){
+      updateCustomer( id: number, updateCustomerDetails: UpdateCustomerParams){
          return this.customersRepository.update(id, { ...updateCustomerDetails});
     }
 

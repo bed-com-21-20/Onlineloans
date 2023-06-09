@@ -28,8 +28,6 @@ getOneLender(id: number){
     return lender;
 }
 
-//getlenderByID(id: number){}
-
 
 createlender(lenderDetails: CreateLenderParams){
     try{
