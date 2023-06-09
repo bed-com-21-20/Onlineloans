@@ -13,7 +13,7 @@ async function bootstrap() {
     .setTitle('Online-loans Customers')
     .setDescription('The Online-loans API description')
     .setVersion('1.0')
-    .addTag('Customers')
+    .addTag('Users, Customers, Lenders')
     .build();
     const document = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('api', app, document);

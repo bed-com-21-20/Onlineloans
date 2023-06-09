@@ -1,10 +1,7 @@
-import { Controller, Get, Param, Post, Put, Delete, Body, Query, NotFoundException, ValidationPipe, ParseIntPipe, UseGuards, UsePipes } from '@nestjs/common';
+import { Controller, Get, Param, Post, Put, Delete, Body, NotFoundException, ValidationPipe, ParseIntPipe, UsePipes } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { user } from "./typeorm/User";
 import { UsersService } from './users.service';
-import { BeltGuard } from 'src/belt/belt.guard';
-import { customers } from './typeorm';
 
 
 @Controller('user')
@@ -15,7 +12,7 @@ export class UsersController {
 // // GET / Customers --> []
 
  @Get()
- getCustomer(id: number){
+ getCustomer(){
       return this.UsersService.findAll();
  } 
 
@@ -48,16 +45,6 @@ getOneLender(@Param('id' ) id: number){
    await this.UsersService.updateUser(id, UpdateUserDto );
  }
 
-// // POST /customer 
-// @Post()
-// @UseGuards(BeltGuard) // used to protect  route in this case, the post route
-// createCustomer(@Body(new ValidationPipe()) createCustomerDto: CreateCustomerDto ){
-   
-//     return this.customersService.createCustomer(createCustomerDto);
-//        }
-
-
-// // DELETE /customer/: id 
 
 @Delete(':id')
 removeCustomer(@Param('id', ParseIntPipe) id: number){

@@ -15,7 +15,7 @@ export class CustomersService {
 
 
    async getCustomer(): Promise<customers[]> {
-        return await this.customersRepository.find();
+       return await this.customersRepository.find();
    }
 
    getOneCustomer(id: number){

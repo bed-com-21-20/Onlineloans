@@ -20,3 +20,14 @@ export type UpdateLenderParams ={
     phonenum: number;
        
     };
+
+    export type CreateUserParams ={
+
+       username: string;
+       password: string;
+       emailAddress: string;
+           
+        };
+    
+    
+        

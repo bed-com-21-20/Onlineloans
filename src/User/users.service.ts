@@ -4,25 +4,22 @@ import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { user } from './typeorm/User';
-import { type } from 'os';
+import { CreateUserParams } from 'src/utils/types';
 
-export type User = user;
+//export type ;
 @Injectable()
- 
-export class UsersService {
-  
-   
+ export class UsersService {
+    
     constructor(
         @InjectRepository(user)
         private userRepository: Repository<user>,
         ){}
 
 
-// async findOneUser(username:string): Promise<user | undefined> {
-//     return this.userRepository.find(User => User.username == username);
-// }
-
-
+async findOneUser(username:string): Promise<user | undefined> {
+    return this.userRepository.findOneBy({username});
+}
+ 
 
    async findAll(): Promise<user[]>{
        return await this.userRepository.find();
