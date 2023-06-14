@@ -14,7 +14,7 @@ import { UsersController } from './User/users.controller';
 
 @Module({
  
-  imports: [UsersModule,LendersModule,CustomersModule,TypeOrmModule.forRoot({
+  imports: [UsersModule, LendersModule,CustomersModule,TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
     port: 3306,
