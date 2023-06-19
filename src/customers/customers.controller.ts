@@ -2,7 +2,9 @@ import { Controller, Get, Post, Put, Delete, Body,Param, ParseIntPipe, NotFoundE
 import { CustomersService } from './customers.service';
 import { CreateCustomerDto } from 'src/User/dto/create-customer.dto';
 import { UpdateCustomerDto } from 'src/User/dto/update-customer.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Customers')
 @Controller('customers')
 export class CustomersController {
 

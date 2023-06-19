@@ -11,7 +11,7 @@ describe('LendersController', () => {
 
     controller = module.get<LendersController>(LendersController);
   });
-
+//post
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });

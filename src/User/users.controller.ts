@@ -2,8 +2,9 @@ import { Controller, Get, Param, Post, Put, Delete, Body, NotFoundException, Val
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersService } from './users.service';
+import { ApiTags } from '@nestjs/swagger';
 
-
+@ApiTags('User')
 @Controller('user')
 export class UsersController {
 

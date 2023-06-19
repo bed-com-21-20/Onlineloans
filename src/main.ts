@@ -11,9 +11,9 @@ async function bootstrap() {
   });
  const options = new DocumentBuilder()
     .setTitle('Online-loans Customers')
-    .setDescription('The Online-loans API description')
+    .setDescription('Apply Online-loans ')
     .setVersion('1.0')
-    .addTag('Users, Customers, Lenders')
+    .addTag("Oline Loans")
     .build();
     const document = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('api', app, document);

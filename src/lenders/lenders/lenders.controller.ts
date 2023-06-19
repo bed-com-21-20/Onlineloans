@@ -3,7 +3,9 @@ import { CreateLenderDto } from 'src/User/dto/CreateLender.dto';
 import { LendersService } from './lenders.service';
 import { lenders } from 'src/User/typeorm/lenders';
 import {  UpdateLenderDto } from 'src/User/dto/update-lender.dto';
+import { ApiProperty, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Lenders')
 @Controller('lenders')
 export class LendersController {
     constructor( private lendersService: LendersService){ }
