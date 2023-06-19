@@ -34,7 +34,7 @@ export class customers{
     @IsEmail()
     emailAddress: string;
 
-    @Column('double')
+    @Column('int')
     amount: number;
 
     @Column()
